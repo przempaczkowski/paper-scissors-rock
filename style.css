@@ -70,3 +70,22 @@ img {
     font-weight: 800
 
 }
+#play-button {
+    display: flex;
+    background-color:bisque;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+#options-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: 800
+
+}
