@@ -89,3 +89,9 @@ img {
     font-weight: 800
 
 }
+@media screen and (min-width: 1140px) {
+    .main-container {
+      width: 360px;
+      margin: 16px auto;
+      font-size: 1.1em;
+    }

@@ -3,69 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form id="options-form">
-        <label>
-            <input type="radio" name="rock-beats" value="scissors"> Rock beats Scissors
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="paper-beats" value="rock"> Paper beats Rock
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="scissors-beats" value="paper"> Scissors beats Paper
-        </label>
-        <br>
-        <button type="button" id="play-button">Play</button>
-    </form>
-
-    <div class="result-container">Make your choice!</div>
-
-    <script>
-        const resultText = document.querySelector('.result-container');
-        const playButton = document.getElementById('play-button');
-
-        playButton.addEventListener('click', () => {
-            const userChoice = getUserChoice();
-            if (!userChoice) {
-                resultText.textContent = 'Please select a winning combination.';
-                return;
-            }
-
-            const computerChoice = getRandomChoice();
-            const result = getWinner(userChoice, computerChoice);
-            resultText.textContent = `You chose ${userChoice}, computer chose ${computerChoice}. ${result}`;
-        });
-
-        function getUserChoice() {
-            const selectedOption = document.querySelector('input[name="rock-beats"]:checked') ||
-                                    document.querySelector('input[name="paper-beats"]:checked') ||
-                                    document.querySelector('input[name="scissors-beats"]:checked');
-
-            return selectedOption ? selectedOption.value : null;
-        }
-
-        function getRandomChoice() {
-            const choices = ['rock', 'paper', 'scissors'];
-            return choices[Math.floor(Math.random() * 3)];
-        }
-
-        function getWinner(player, computer) {
-            if (player === computer) {
-                return "It's a tie!";
-            } else if (player === computer) {
-                return 'It\'s a tie!';
-            } else {
-                return `${player.charAt(0).toUpperCase() + player.slice(1)} beats ${computer}. You win!`;
-            }
-        }
-    </script>
+    <div class="header">
+        <h1>Rock Paper Scissors Game</h1>
+    </div>
+    <div class="game-container">
+        <div class="weapon">
+            <h3>Choose your weapon</h3>
+        </div>
+        <div class="images">
+            <button id="paper"><img src="images/paper.svg" alt="paper icon"></button>
+            <button id="scissors"><img src="images/scissors.svg" alt="scissors icon"></button>
+            <button id="rock"><img src="images/rock.svg" alt="rock icon"></button>
+            <!-- Add user-defined button -->
+            <button id="user-button">Kutas Matejki</button>
+        </div>
+        <!-- Dropdown menu for user-defined rules -->
+        <div class="dropdown">
+            <label for="user-rule">Select rules for Kutas Matejki:</label>
+            <select id="user-rule" multiple>
+                <option value="rock">Kutas Matejki beats Rock</option>
+                <option value="paper">Kutas Matejki beats Paper</option>
+                <option value="scissors">Kutas Matejki beats Scissors</option>
+            </select>
+        </div>
+        <!-- Reset button -->
+        <button id="reset-button">Reset Game</button>
+    </div>
+    <div class="result-container"></div>
+    <script src="script.js"></script>
 </body>
 </html>
