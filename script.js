@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('button');
             button.addEventListener('click', () => {
                 const userChoice = button.id;
                 const computerChoice = choices[Math.floor(Math.random() * 3)];
-
+                console.log(computerChoice);
                 const result = getWinner(userChoice, computerChoice);
                 resultText.textContent = `You chose ${userChoice}, computer chose ${computerChoice}. ${result}`;
             });
