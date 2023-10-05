@@ -1,16 +1,27 @@
-const getComputerChoice = () => {
-    const randomChoice = Math.floor(Math.random() * 3);
-    if (randomChoice === 0) {
-        return 'Rock';
-    } else if (randomChoice === 1) {
-        return 'Paper';
-    } else {
-        return 'Scissor';
-    }
-};
+const buttons = document.querySelectorAll('button');
+        const resultText = document.querySelector('.result-container');
+        const choices = ['rock', 'paper', 'scissors'];
 
-console.log(getComputerChoice());
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const userChoice = button.id;
+                const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-const getPlayerChoice () => {
-    const playerChoice = 
-};
+                const result = getWinner(userChoice, computerChoice);
+                resultText.textContent = `You chose ${userChoice}, computer chose ${computerChoice}. ${result}`;
+            });
+        });
+
+        function getWinner(player, computer) {
+            if (player === computer) {
+                return "It's a tie!";
+            } else if (
+                (player === 'rock' && computer === 'scissors') ||
+                (player === 'paper' && computer === 'rock') ||
+                (player === 'scissors' && computer === 'paper')
+            ) {
+                return 'You win!';
+            } else {
+                return 'Computer wins!';
+            }
+        }

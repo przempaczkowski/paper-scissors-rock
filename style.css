@@ -28,29 +28,45 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+
 .weapon {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 3rem;
 }
+
 .images {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 3rem;
 }
+
+button {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    
+}
+
+button:hover {
+    background-color: rgb(224, 38, 224);
+}
+
 img {
     border: 3px rgb(0, 0, 0) solid;
     width: 10rem;
     height: 10rem;
 }
+
 .result-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: large;
+    font-weight: 800
 
-}
-.result-container {
-    display: none;
 }
